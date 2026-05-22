@@ -1,0 +1,66 @@
+=== CUSTOMER SUPPORT TICKET SYSTEM - RAW API EXPORT ===
+Generated: 2024-03-15T09:42:00Z
+
+--- TICKET #10421 ---
+Customer: James Okonkwo
+Email: james.okonkwo@gmail.com
+Alt Contact: j.okonkwo@@hotmail..com
+Phone: +1 (555) 234-7890
+Card used: 4111 1111 1111 1111
+Backup card: 1234-ABCD-5678-XXXX
+Profile: https://shop.example.com/profile?user=james
+
+--- TICKET #10422 ---
+Customer: Amara Ndiaye
+Email: amara.ndiaye@alumni.alueducation.com
+Alt Contact: ndiaye@@.org
+Phone: 0788-123-456
+Card used: 5500 0000 0000 0004
+Portal: https://portal.alueducation.com/login?token=abc123
+Broken link: htp://broken.alueducation/dashboard
+
+--- TICKET #10423 ---
+Customer: Sophie Mensah
+Email: sophie.mensah@si.alueducation.com
+Alt Contact: sophie@si@alueducation.com
+Phone: +250 788 456 123
+Card used: 3714 496353 98431
+Alt card: 0000-0000-0000-0000
+Invoice: https://billing.example.com/invoice?id=SM2024
+Suspicious: ' OR 1=1 --
+
+--- TICKET #10424 ---
+Customer: David Kariuki
+Email: d.kariuki@alueducation.com
+Alt Contact: david.k@.com
+Phone: 0712.345.678
+Card on file: 5500 0000 0000 0004
+Profile URL: https://alueducation.com/profile/dkariuki
+Injection attempt: <script>alert('xss')</script>
+
+--- TICKET #10425 ---
+Customer: Fatima Al-Hassan
+Email: fatima.alhassan@yahoo.com
+Alt Contact: fatima@
+Phone: +44 7911 123456
+Card used: 4532 1488 0343 6467
+Referral URL: https://referral.example.com/join?code=REF789&source=email
+Dead link: www.missingprotocol.com
+
+--- TICKET #10426 ---
+Customer: Unknown
+Email: <script>document.location='http://evil.com'</script>
+Phone: 000-000-0000
+Card: 4111111111111111
+Injection: '; DROP TABLE tickets; --
+
+--- TICKET #10427 ---
+Customer: Lena Mwangi
+Email: lena.mwangi@alueducation.com
+Alt Contact: lena@alumni.alueducation.com
+Phone: +254 700 234 567
+Card used: 3714 496353 98431
+Alt card: 4532 1488 0343 6467
+Invoice URL: https://billing.alueducation.com/invoices/LM2024
+
+=== END OF EXPORT ===
