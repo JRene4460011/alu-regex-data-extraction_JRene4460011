@@ -14,7 +14,13 @@ credit_card_pattern = r"(?:\d[ -]*?){13,16}"
 # Here, I'm applying my regex patterns on the content variable, and ensuring that no duplicate email or credit card will be included in the final list of valid emails.
 emails = list(set(re.findall(pattern, content)))
 alu_emails = list(set(re.findall(alu_pattern, content)))
-credit_cards = list(set(re.findall(credit_card_pattern, content)))
+
+# credit_cards = list(set(re.findall(credit_card_pattern, content)))
+# This new way of credit_cards extraction will help me to hide the last 6 digits of the credit card numbers, thus improving the security.
+credit_cards = [
+    card[:-6] + "******"
+    for card in set(re.findall(credit_card_pattern, content))
+]
 
 # Then here, I created a dictionary "data" to store the list of valid emails, specific ALU emails, and valid credit card under the key "All valid emails" and "ALU valid emails" respectively.
 data = {
