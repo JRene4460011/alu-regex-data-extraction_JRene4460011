@@ -14,7 +14,9 @@ url_pattern = r"https?:\/\/[^\s'\"<>]+"
 phone_pattern = r"(?:\+\d{1,3}[ -]?)?(?:07\d{8}|07\d{2}[ -]\d{3}[ -]\d{3})"
 
 # Here, I'm applying my regex patterns on the content variable, and ensuring that no duplicate email or credit card will be included in the final list of valid emails.
-emails = list(set(re.findall(pattern, content)))
+# emails = list(set(re.findall(pattern, content)))  ====> I'm commenting this out because I want to exclude the ALU specific emails from the list of other emails. 
+
+emails = list(set(re.findall(pattern, content)) - set(re.findall(alu_pattern, content)))
 alu_emails = list(set(re.findall(alu_pattern, content)))
 
 # credit_cards = list(set(re.findall(credit_card_pattern, content)))
