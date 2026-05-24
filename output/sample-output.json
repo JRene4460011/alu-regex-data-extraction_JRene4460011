@@ -1,0 +1,34 @@
+{
+    "All valid emails": [
+        "fatima.alhassan@yahoo.com",
+        "james.okonkwo@gmail.com"
+    ],
+    "ALU valid emails": [
+        "lena@alumni.alueducation.com",
+        "lena.mwangi@alueducation.com",
+        "amara.ndiaye@alumni.alueducation.com",
+        "sophie.mensah@si.alueducation.com",
+        "si@alueducation.com",
+        "d.kariuki@alueducation.com"
+    ],
+    "Valid credit cards": [
+        "0000-0000-000******",
+        "3714 496353******",
+        "5500 0000 000******",
+        "4111 1111 111******",
+        "4111111111******",
+        "4532 1488 034******"
+    ],
+    "Valid URLs": [
+        "https://portal.alueducation.com/login?token=abc123",
+        "https://billing.example.com/invoice?id=SM2024",
+        "http://evil.com",
+        "https://alueducation.com/profile/dkariuki",
+        "https://shop.example.com/profile?user=james",
+        "https://referral.example.com/join?code=REF789&source=email",
+        "https://billing.alueducation.com/invoices/LM2024"
+    ],
+    "Valid phone numbers": [
+        "0788-12*****"
+    ]
+}
