@@ -2,9 +2,23 @@
 import re
 import json
 
+def verify_input(text):
+    dangerous_patterns = [
+        r"<script.*?>.*?</script>",   # XSS
+        r"(DROP|DELETE|INSERT|SELECT|UPDATE)\s+\w+",  # SQL injection
+        r"\.\./",                      # Trying to escape directories or access parent directories.
+        r"(__import__|eval|exec)\s*\(", # Python code injection
+    ]
+    for pattern in dangerous_patterns:
+        if re.search(pattern, text, re.IGNORECASE | re.DOTALL):
+            print(f"[WARNING] Potentially unsafe input detected. Pattern: {pattern}")
+    return text
+
 # Below, I'm opening the raw-text.txt file, which contains the sample text for testing. Moreover, I'm reading and storing the content in that file into the content variable. I can therefore print the complete text in the terminal, or use it for anything (including applying regex patterns)
 with open("../input/raw-text.txt", "r") as file:
     content = file.read()
+
+content = verify_input(content)
 
 # Here, I'm applying regex patterns, which I tested on rubular.com, to extract all valid email addresses (and ALU specific ones), credit cards, URLs, and phone numbers from the content variable, given that I used it to store our text from the raw-text.txt file.
 pattern = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
