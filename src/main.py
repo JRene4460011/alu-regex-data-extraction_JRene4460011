@@ -8,7 +8,7 @@ with open("../input/raw-text.txt", "r") as file:
 
 # Here, I'm applying regex patterns, which I tested on rubular.com, to extract all valid email addresses (and ALU specific ones), credit cards, URLs, and phone numbers from the content variable, given that I used it to store our text from the raw-text.txt file.
 pattern = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
-alu_pattern = r"[A-Za-z0-9._%+-]+@(?:alueducation\.com|alumni\.alueducation\.com|si\.alueducation\.com)"
+alu_pattern = r"[A-Za-z0-9._%+-]+@(?:alueducation\.com|alumni\.alueducation\.com|si\.alueducation\.com)(?!\S)"
 credit_card_pattern = r"(?:\d[ -]*?){13,16}"
 url_pattern = r"https?:\/\/[^\s'\"<>]+"
 phone_pattern = r"(?:\+\d{1,3}[ -]?)?(?:07\d{8}|07\d{2}[ -]\d{3}[ -]\d{3})"
