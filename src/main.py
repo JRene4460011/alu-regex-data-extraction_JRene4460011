@@ -6,10 +6,12 @@ import json
 with open("../input/raw-text.txt", "r") as file:
     content = file.read()
 
-# Here, I'm applying regex patterns, which I tested on rubular.com, to extract all valid email addresses (and ALU specific ones) and credit cards from the content variable, given that I used it to store our text from the raw-text.txt file.
+# Here, I'm applying regex patterns, which I tested on rubular.com, to extract all valid email addresses (and ALU specific ones), credit cards, URLs, and phone numbers from the content variable, given that I used it to store our text from the raw-text.txt file.
 pattern = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
 alu_pattern = r"[A-Za-z0-9._%+-]+@(?:alueducation\.com|alumni\.alueducation\.com|si\.alueducation\.com)"
 credit_card_pattern = r"(?:\d[ -]*?){13,16}"
+url_pattern = r"https?:\/\/[^\s'\"<>]+"
+phone_pattern = r"(?:\+\d{1,3}[ -]?)?(?:07\d{8}|07\d{2}[ -]\d{3}[ -]\d{3})"
 
 # Here, I'm applying my regex patterns on the content variable, and ensuring that no duplicate email or credit card will be included in the final list of valid emails.
 emails = list(set(re.findall(pattern, content)))
@@ -22,11 +24,21 @@ credit_cards = [
     for card in set(re.findall(credit_card_pattern, content))
 ]
 
+# Here, I'm applying the regex pattern for URLs and Phone numbers, but ensuring that phone numbers are displayed in a more secretive way.
+urls = list(set(re.findall(url_pattern, content)))
+
+phone_numbers = [
+    pnumber[:-5] + "*****"
+    for pnumber in set(re.findall(phone_pattern, content))
+]
+
 # Then here, I created a dictionary "data" to store the list of valid emails, specific ALU emails, and valid credit card under the key "All valid emails" and "ALU valid emails" respectively.
 data = {
     "All valid emails": emails,
     "ALU valid emails": alu_emails,
-    "Valid credit cards": credit_cards
+    "Valid credit cards": credit_cards,
+    "Valid URLs": urls,
+    "Valid phone numbers": phone_numbers
 }
 
 # Finally, I'm writing the "data" dictionary into our JSON output file named 'sample-output.json'!!!!
